@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Roboto";
+}
+
 header {
   display: flex;
   justify-content: space-between;

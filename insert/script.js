@@ -21,6 +21,31 @@ const insertData = async (data) => {
 };
 
 submitBtn.addEventListener("click", async () => {
+  if (
+    !nameInput.value ||
+    !priceInput.value ||
+    !descriptionInput.value ||
+    !imgInput.value ||
+    !locationInput.value
+  ) {
+    console.log("Please enter all of the data.");
+    return;
+  }
+
+  if (isNaN(priceInput.value)) {
+    console.log("Price must be a number");
+    return;
+  }
+
+  const correctUrlRegex =
+    /http(s)?:\/\/[A-Za-z0-9]+(\.[A-Za-z0-9]+)+\/[A-Za-z0-9/]+\.(png|webp|jpg|bmp)$/;
+
+  const isCorrectUrl = correctUrlRegex.test(imgInput.value);
+
+  if (!isCorrectUrl) {
+    console.log("Please enter image URL in a proper format.");
+  }
+
   const data = {
     name: nameInput.value,
     price: priceInput.value,
