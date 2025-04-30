@@ -8,16 +8,23 @@ const displayProducts = (products) => {
       card.href = `./product/index.html?id=${product.id}`;
       card.classList.add("card");
 
+      const cardImg = document.createElement("div");
+      cardImg.classList.add("card-image");
+      cardImg.style.backgroundImage = `url(${product.imgUrl})`;
+
+      const cardContent = document.createElement("div");
+      cardContent.classList.add("card-content");
+
       const cardTitle = document.createElement("h3");
       cardTitle.textContent = product.name;
       const cardPrice = document.createElement("h3");
-      cardPrice.textContent = product.price;
-      const cardImg = document.createElement("img");
-      cardImg.src = product.imgUrl;
+      cardPrice.textContent = `${product.price}$`;
 
-      card.append(cardTitle);
-      card.append(cardPrice);
+      cardContent.append(cardTitle);
+      cardContent.append(cardPrice);
+
       card.append(cardImg);
+      card.append(cardContent);
 
       productsWrapper.append(card);
     });
