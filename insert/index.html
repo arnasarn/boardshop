@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/b2c6493fef.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="../logo.webp" class="logo" alt="logo" />
+      <div class="header-right-side">
+        <ul>
+          <li><a href="../index.html">All boards</a></li>
+          <li><a href="#">Insert board</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h2 class="title">Insert a new board</h2>
+      <div class="form">
+        <input id="nameInput" type="text" placeholder="Please enter name" />
+        <input id="priceInput" type="text" placeholder="Please enter a price" />
+        <input
+          id="descriptionInput"
+          type="text"
+          placeholder="Please enter a description"
+        />
+        <input
+          id="imgInput"
+          type="text"
+          placeholder="Please enter an image URL"
+        />
+        <input
+          id="locationInput"
+          type="text"
+          placeholder="Please enter a location"
+        />
+        <button id="submitBtn">Submit</button>
+      </div>
+      <h4 id="success-msg" class="success-msg"></h4>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

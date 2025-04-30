@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/b2c6493fef.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="../logo.webp" class="logo" alt="logo" />
+      <div class="header-right-side">
+        <ul>
+          <li><a href="../index.html">All boards</a></li>
+          <li><a href="../insert/index.html">Insert board</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="product-wrapper">
+        <div class="product-left-side">
+          <img id="product-img" alt="product" />
+        </div>
+        <div class="product-right-side">
+          <h1 id="title"></h1>
+          <p id="description"></p>
+          <h3 id="price"></h3>
+          <h4>You can buy this board at: <span id="location"></span></h4>
+          <button id="delete-btn">Delete Board</button>
+          <h4 id="success-msg"></h4>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
