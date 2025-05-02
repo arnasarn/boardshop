@@ -1,3 +1,5 @@
+import { fetchProducts } from "./utils/fetch.js";
+
 const productsWrapper = document.getElementById("products-wrapper");
 
 const displayProducts = (products) => {
@@ -28,14 +30,6 @@ const displayProducts = (products) => {
 
       productsWrapper.append(card);
     });
-};
-
-const fetchProducts = async () => {
-  const response = await fetch(
-    "https://68073abde81df7060eb9499e.mockapi.io/boards"
-  );
-  const data = await response.json();
-  return data;
 };
 
 const initProducts = async () => {

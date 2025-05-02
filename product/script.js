@@ -1,3 +1,5 @@
+import { fetchBoardById, deleteBoard } from "../utils/fetch.js";
+
 const url = new URL(document.location.href);
 const id = url.searchParams.get("id");
 
@@ -9,26 +11,8 @@ const productLocation = document.getElementById("location");
 const deleteBtn = document.getElementById("delete-btn");
 const successMsg = document.getElementById("success-msg");
 
-const fetchBoardById = async () => {
-  const response = await fetch(
-    `https://68073abde81df7060eb9499e.mockapi.io/boards/${id}`
-  );
-  const data = await response.json();
-  return data;
-};
-
-const deleteBoard = async () => {
-  const response = await fetch(
-    `https://68073abde81df7060eb9499e.mockapi.io/boards/${id}`,
-    {
-      method: "DELETE",
-    }
-  );
-  return response;
-};
-
 const displayBoard = async () => {
-  const board = await fetchBoardById();
+  const board = await fetchBoardById(id);
 
   productImg.src = board.imgUrl;
   title.textContent = board.name;
@@ -38,8 +22,11 @@ const displayBoard = async () => {
 };
 
 deleteBtn.addEventListener("click", async () => {
-  const response = await deleteBoard();
+  const response = await deleteBoard(id);
   if (response.status === 200) successMsg.textContent = "Board deleted!";
+  setTimeout(() => {
+    document.location.href = "../index.html";
+  }, 3000);
 });
 
 displayBoard();

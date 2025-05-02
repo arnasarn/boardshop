@@ -1,3 +1,6 @@
+import { insertData } from "../utils/fetch.js";
+import { validateInput } from "../utils/validation.js";
+
 const nameInput = document.getElementById("nameInput");
 const priceInput = document.getElementById("priceInput");
 const descriptionInput = document.getElementById("descriptionInput");
@@ -6,46 +9,7 @@ const locationInput = document.getElementById("locationInput");
 const submitBtn = document.getElementById("submitBtn");
 const successMsg = document.getElementById("success-msg");
 
-const insertData = async (data) => {
-  const response = await fetch(
-    "https://68073abde81df7060eb9499e.mockapi.io/boards",
-    {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json",
-      },
-    }
-  );
-  return response;
-};
-
 submitBtn.addEventListener("click", async () => {
-  if (
-    !nameInput.value ||
-    !priceInput.value ||
-    !descriptionInput.value ||
-    !imgInput.value ||
-    !locationInput.value
-  ) {
-    console.log("Please enter all of the data.");
-    return;
-  }
-
-  if (isNaN(priceInput.value)) {
-    console.log("Price must be a number");
-    return;
-  }
-
-  const correctUrlRegex =
-    /http(s)?:\/\/[A-Za-z0-9]+(\.[A-Za-z0-9]+)+\/[A-Za-z0-9/]+\.(png|webp|jpg|bmp)$/;
-
-  const isCorrectUrl = correctUrlRegex.test(imgInput.value);
-
-  if (!isCorrectUrl) {
-    console.log("Please enter image URL in a proper format.");
-  }
-
   const data = {
     name: nameInput.value,
     price: priceInput.value,
@@ -54,7 +18,16 @@ submitBtn.addEventListener("click", async () => {
     location: locationInput.value,
   };
 
+  if (validateInput(data)) {
+    console.log("Incorrect input");
+    return;
+  }
+
   await insertData(data);
 
   successMsg.textContent = "Board added successfully.";
+
+  setTimeout(() => {
+    document.location.href = "../index.html";
+  }, 3000);
 });
