@@ -18,7 +18,7 @@ export const validateInput = (data) => {
   }
 
   const correctUrlRegex =
-    /http(s)?:\/\/[A-Za-z0-9]+(\.[A-Za-z0-9]+)+\/[-_A-Za-z0-9/]+\.(png|webp|jpg|bmp)$/i;
+    /http(s)?:\/\/[A-Za-z0-9]+(\.[A-Za-z0-9]+)+\/.*\.(png|webp|jpg|bmp)$/i;
 
   const isCorrectUrl = correctUrlRegex.test(data.imgUrl);
 
