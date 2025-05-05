@@ -14,7 +14,7 @@ const displayProducts = (products) => {
   [...products]
     .sort((a, b) => a.price - b.price)
     .forEach((product) => {
-      if (product.name.toLowerCase().includes(searchText)) {
+      if (product.name.toLowerCase().includes(searchText.toLowerCase())) {
         const card = document.createElement("a");
         card.href = `../product/index.html?id=${product.id}`;
         card.classList.add("card");
@@ -56,7 +56,7 @@ searchBtn.addEventListener("click", () => {
     console.log("Search is too long");
     return;
   }
-  window.location.href = `./search/index.html?text=${searchInput.value}`;
+  window.location.href = `../search/index.html?text=${searchInput.value}`;
 });
 
 const initProducts = async () => {

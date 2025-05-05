@@ -26,7 +26,7 @@ searchBtn.addEventListener("click", () => {
     console.log("Search is too long");
     return;
   }
-  window.location.href = `./search/index.html?text=${searchInput.value}`;
+  window.location.href = `../search/index.html?text=${searchInput.value}`;
 });
 
 deleteBtn.addEventListener("click", async () => {
