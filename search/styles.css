@@ -88,6 +88,10 @@ header ul li a {
   cursor: pointer;
 }
 
+.result-title {
+  padding: 2rem 8rem;
+}
+
 .card {
   border: 1px solid #e6e6e6;
   text-decoration: none;
@@ -136,6 +140,10 @@ header ul li a {
 @media (max-width: 1000px) {
   header {
     padding: 0 4rem;
+  }
+
+  .result-title {
+    padding: 2rem 4rem;
   }
 
   .products-wrapper {

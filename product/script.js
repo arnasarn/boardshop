@@ -21,6 +21,14 @@ const displayBoard = async () => {
   productLocation.textContent = board.location;
 };
 
+searchBtn.addEventListener("click", () => {
+  if (searchInput.value > 255) {
+    console.log("Search is too long");
+    return;
+  }
+  window.location.href = `./search/index.html?text=${searchInput.value}`;
+});
+
 deleteBtn.addEventListener("click", async () => {
   const response = await deleteBoard(id);
   if (response.status === 200) successMsg.textContent = "Board deleted!";

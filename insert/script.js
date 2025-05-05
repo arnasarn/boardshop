@@ -31,3 +31,11 @@ submitBtn.addEventListener("click", async () => {
     document.location.href = "../index.html";
   }, 3000);
 });
+
+searchBtn.addEventListener("click", () => {
+  if (searchInput.value > 255) {
+    console.log("Search is too long");
+    return;
+  }
+  window.location.href = `./search/index.html?text=${searchInput.value}`;
+});

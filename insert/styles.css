@@ -90,6 +90,7 @@ header ul li a {
 .search-bar .search-btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  cursor: pointer;
 }
 
 .form {

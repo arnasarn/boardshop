@@ -1,6 +1,8 @@
 import { fetchProducts } from "./utils/fetch.js";
 
 const productsWrapper = document.getElementById("products-wrapper");
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
 
 const displayProducts = (products) => {
   [...products]
@@ -40,6 +42,14 @@ const displayProducts = (products) => {
       productsWrapper.append(card);
     });
 };
+
+searchBtn.addEventListener("click", () => {
+  if (searchInput.value > 255) {
+    console.log("Search is too long");
+    return;
+  }
+  window.location.href = `./search/index.html?text=${searchInput.value}`;
+});
 
 const initProducts = async () => {
   const products = await fetchProducts();
