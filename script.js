@@ -17,9 +17,9 @@ const displayProducts = (products) => {
       const cardContent = document.createElement("div");
       cardContent.classList.add("card-content");
 
-      const cardTitle = document.createElement("h3");
+      const cardTitle = document.createElement("span");
       cardTitle.textContent = product.name;
-      const cardPrice = document.createElement("h3");
+      const cardPrice = document.createElement("span");
       cardPrice.textContent = `${product.price}$`;
 
       cardContent.append(cardTitle);
@@ -27,6 +27,15 @@ const displayProducts = (products) => {
 
       card.append(cardImg);
       card.append(cardContent);
+
+      //mouse-over effect
+      card.addEventListener("mouseover", () => {
+        cardImg.classList.add("card-image-hovered");
+      });
+
+      card.addEventListener("mouseout", () => {
+        cardImg.classList.remove("card-image-hovered");
+      });
 
       productsWrapper.append(card);
     });
